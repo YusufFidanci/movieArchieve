@@ -19,10 +19,10 @@ namespace movieArchieve.Entities
 
 
         [ForeignKey("UserID")]
-        public int userID { get; set; }
+        public Users? user { get; set; }
         
         [ForeignKey("MovieID")]
-        public int movieID { get; set; }
+        public Movies movie { get; set; }
 
 
 

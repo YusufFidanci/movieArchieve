@@ -11,9 +11,9 @@ namespace movieArchieve.Entities
         public string? charName { get; set; }
 
         [ForeignKey("movies")]
-        public Movies movie { get; set; }
+        public Movies? movie { get; set; }
         [ForeignKey("actors")]
-        public Actors actor { get; set; }
+        public Actors? actor { get; set; }
 
     }
 }

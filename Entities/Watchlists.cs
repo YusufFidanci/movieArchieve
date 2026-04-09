@@ -13,8 +13,8 @@ namespace movieArchieve.Entities
 
         public DateTime createdAt { get; set; }
 
-        [ForeignKey("UserID")]
-        public int userID { get; set; }
+        [ForeignKey("User")]
+        public Users? userID { get; set; }
 
 
     }

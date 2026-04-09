@@ -14,10 +14,10 @@ namespace movieArchieve.Entities
         public DateTime updatedAt { get; set; }
        
         [ForeignKey("review_user")]
-        public int userID { get; set; }
+        public Users? user { get; set; }
         
         [ForeignKey("review_movie")]
-        public int movieID { get; set; }
+        public Movies? movie { get; set; }
 
 
     }
