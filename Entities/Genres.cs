@@ -12,9 +12,7 @@ namespace movieArchieve.Entities
         [Required]
         public string genreName { get; set; }
 
-        [ForeignKey("genres_movieGenres")]
-
-        public MovieGenres? movieGenres { get; set; }
+       
 
     }
 

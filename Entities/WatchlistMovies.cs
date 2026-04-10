@@ -8,10 +8,10 @@ namespace movieArchieve.Entities
         public int watchlistID { get; set; }
         public int movieID { get; set; }
 
-        [ForeignKey("watchlist")]
+        [ForeignKey("watchlistID")]
         public Watchlists watchlist { get; set; }
 
-        [ForeignKey("movie")]
+        [ForeignKey("movieID")]
         public Movies? movie { get; set; }
 
 
