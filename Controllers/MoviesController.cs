@@ -1,30 +1,31 @@
 ﻿using Microsoft.AspNetCore.Mvc;
 using movieArchieve.Data;
 using movieArchieve.Entities;
-
 namespace movieArchieve.Controllers
 {
-    public class ratingControllers : Controller
+    public class MoviesController : Controller
     {
         private readonly AppDbContext _context;
-        public ratingControllers(AppDbContext context)
+        public MoviesController(AppDbContext context)
         {
             _context = context;
         }
 
         public IActionResult Index()
         {
-            return View();
+            var movies = _context.movies.ToList();
+            return View(movies);
         }
-    
+
         public IActionResult Delete(int ID)
-        {
-            var rating = _context.ratings.Find(ID);
-            if (rating == null)
+        { 
+            var movie = _context.movies.Find(ID);
+            if (movie == null)
             {
                 return NotFound();
             }
-            _context.ratings.Remove(rating);
+
+            _context.movies.Remove(movie);
             _context.SaveChanges();
             return RedirectToAction("Index");
         }
@@ -35,30 +36,34 @@ namespace movieArchieve.Controllers
         }
 
         [HttpPost]
-
-        public IActionResult Create(Ratings rating)
+        public IActionResult Create(Movies movie)
         {
-            _context.ratings.Add(rating);
+            _context.movies.Add(movie);
             _context.SaveChanges();
             return RedirectToAction("Index");
-        }
 
+        }
 
         public IActionResult Edit(int ID)
         {
-            var rating = _context.ratings.Find(ID);
-            if (rating == null)
+            var movie = _context.movies.Find(ID);
+            if (movie == null)
             {
                 return NotFound();
             }
-            return View(rating);
+            return View(movie);
         }
+
         [HttpPost]
-        public IActionResult Edit(Ratings rating)
+        public IActionResult Edit (Movies movie)
         {
-            _context.ratings.Update(rating);
+            _context.movies.Update(movie);
             _context.SaveChanges();
             return RedirectToAction("Index");
         }
+
     }
+
+    
+
 }

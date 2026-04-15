@@ -4,17 +4,18 @@ using movieArchieve.Entities;
 
 namespace movieArchieve.Controllers
 {
-    public class reviewControllers : Controller
+    public class ReviewsControllers : Controller
     {
         private readonly AppDbContext _context;
-        public reviewControllers(AppDbContext context)
+        public ReviewsControllers(AppDbContext context)
         {
             _context = context;
         }
 
         public IActionResult Index()
         {
-            return View();
+            var reviews = _context.reviews.ToList();
+            return View(reviews);
         }
 
         public IActionResult Delete(int ID)

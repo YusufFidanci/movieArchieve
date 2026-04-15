@@ -4,16 +4,17 @@ using movieArchieve.Entities;
 
 namespace movieArchieve.Controllers
 {
-    public class movieLangControllers : Controller
+    public class MovieLangsControllers : Controller
     {
         private readonly AppDbContext _context;
-        public movieLangControllers(AppDbContext context)
+        public MovieLangsControllers(AppDbContext context)
         {
             _context = context;
         }
         public IActionResult Index()
         {
-            return View();
+            var movieLangs = _context.movieLangs.ToList();
+            return View(movieLangs);
         }
 
         public IActionResult Delete(int ID)

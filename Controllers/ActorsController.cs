@@ -4,53 +4,64 @@ using movieArchieve.Entities;
 
 namespace movieArchieve.Controllers
 {
-    public class userControllers : Controller
+    public class ActorsController : Controller
     {
         private readonly AppDbContext _context;
-        public userControllers(AppDbContext context)
+        public ActorsController(AppDbContext context)
         {
             _context = context;
-        }
+        }   
+
         public IActionResult Index()
         {
-            return View();
+            var actors = _context.actors.ToList();
+            return View(actors);
         }
+         
+
         public IActionResult Delete(int ID)
-        {
-            var user = _context.users.Find(ID);
-            if (user == null)
+        { 
+            var actor = _context.actors.Find(ID);
+            if (actor == null)
             {
                 return NotFound();
             }
-            _context.users.Remove(user);
+            _context.actors.Remove(actor);
             _context.SaveChanges();
             return RedirectToAction("Index");
         }
+
         public IActionResult Create()
         {
             return View();
         }
         [HttpPost]
-        public IActionResult Create(Users user)
+        public IActionResult Create(Actors actor)
         {
-            _context.users.Add(user);
+            _context.actors.Add(actor);
             _context.SaveChanges();
             return RedirectToAction("Index");
         }
+
         public IActionResult Edit(int ID)
         {
-            var user = _context.users.Find(ID);
-            if (user == null)
+            var actor = _context.actors.Find(ID);
+            if (actor == null)
             {
                 return NotFound();
             }
-            return View(user);
+            return View(actor);
         }
+        
         [HttpPost]
-        public IActionResult Edit(Users user)
+        public IActionResult Edit(Actors actor)
         {
-            _context.users.Update(user);
+            _context.actors.Update(actor);
             _context.SaveChanges();
             return RedirectToAction("Index");
         }
+
+
+        
+    }
 }

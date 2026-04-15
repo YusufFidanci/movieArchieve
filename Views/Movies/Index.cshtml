@@ -1,5 +1,34 @@
-﻿@*
-    For more information on enabling MVC for empty projects, visit https://go.microsoft.com/fwlink/?LinkID=397860
-*@
+﻿@model IEnumerable<movieArchieve.Entities.Movies>
+
 @{
+    ViewData["Title"] = "Movies";
 }
+
+<h1>Movie List</h1>
+
+<a href="/Movies/Create">Add New Movie</a>
+
+<table>
+    <tr>
+        <th>ID</th>
+        <th>Title</th>
+        <th>Release Date</th>
+        <th>Runtime (min)</th>
+        <th>Rating</th>
+        <th>Actions</th>
+    </tr>
+    @foreach (var movie in Model)
+    {
+        <tr>
+            <td>@movie.movieID</td>
+            <td>@movie.title</td>
+            <td>@movie.releaseDate</td>
+            <td>@movie.runtimeMinutes</td>
+            <td>@movie.rating</td>
+            <td>
+                <a href="/Movies/Edit/@movie.movieID">Edit</a> |
+                <a href="/Movies/Delete/@movie.movieID">Delete</a>
+            </td>
+        </tr>
+    }
+</table>

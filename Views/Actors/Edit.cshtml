@@ -1,0 +1,21 @@
+﻿@model movieArchieve.Entities.Actors
+
+
+@{
+    ViewData["Title"] = "Edit Actor";
+}
+
+
+<h1>Edit Actor</h1>
+
+<form method="post" action="/Actors/Edit">
+    <input type="hidden" name="actorID" value="@Model.actorID" />
+    <div>
+        <label>Full Name</label>
+        <input type="text" name="fullName" value="@Model.fullName"/>
+    </div>
+    <button type="submit">Update Actor</button>
+
+</form>
+
+

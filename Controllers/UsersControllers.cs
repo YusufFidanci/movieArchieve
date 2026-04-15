@@ -4,25 +4,26 @@ using movieArchieve.Entities;
 
 namespace movieArchieve.Controllers
 {
-    public class watchlistControllers : Controller
+    public class UsersControllers : Controller
     {
         private readonly AppDbContext _context;
-        public watchlistControllers(AppDbContext context)
+        public UsersControllers(AppDbContext context)
         {
             _context = context;
         }
         public IActionResult Index()
         {
-            return View();
+            var users = _context.users.ToList();
+            return View(users);
         }
         public IActionResult Delete(int ID)
         {
-            var watchlist = _context.watchlists.Find(ID);
-            if (watchlist == null)
+            var user = _context.users.Find(ID);
+            if (user == null)
             {
                 return NotFound();
             }
-            _context.watchlists.Remove(watchlist);
+            _context.users.Remove(user);
             _context.SaveChanges();
             return RedirectToAction("Index");
         }
@@ -31,28 +32,27 @@ namespace movieArchieve.Controllers
             return View();
         }
         [HttpPost]
-        public IActionResult Create(Watchlists watchlist)
+        public IActionResult Create(Users user)
         {
-            _context.watchlists.Add(watchlist);
+            _context.users.Add(user);
             _context.SaveChanges();
             return RedirectToAction("Index");
         }
         public IActionResult Edit(int ID)
         {
-            var watchlist = _context.watchlists.Find(ID);
-            if (watchlist == null)
+            var user = _context.users.Find(ID);
+            if (user == null)
             {
                 return NotFound();
             }
-            return View(watchlist);
+            return View(user);
         }
         [HttpPost]
-        public IActionResult Edit(Watchlists watchlist)
+        public IActionResult Edit(Users user)
         {
-            _context.watchlists.Update(watchlist);
+            _context.users.Update(user);
             _context.SaveChanges();
             return RedirectToAction("Index");
         }
-
     }
 }

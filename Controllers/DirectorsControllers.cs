@@ -4,16 +4,17 @@ using movieArchieve.Entities;
 
 namespace movieArchieve.Controllers
 {
-    public class directorControllers : Controller
+    public class DirectorsControllers : Controller
     {
         private readonly AppDbContext _context;
-        public directorControllers(AppDbContext context)
+        public DirectorsControllers(AppDbContext context)
         {
             _context = context;
         }
         public IActionResult Index()
         {
-            return View();
+            var directors = _context.directors.ToList();
+            return View(directors);
         }
 
         public IActionResult Delete(int ID)

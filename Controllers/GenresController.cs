@@ -4,10 +4,10 @@ using movieArchieve.Entities;
 
 namespace movieArchieve.Controllers
 {
-    public class genreController : Controller
+    public class GenresController : Controller
     {
         private readonly AppDbContext _context;
-        public genreController(AppDbContext context)
+        public GenresController(AppDbContext context)
         {
             _context = context;
         }

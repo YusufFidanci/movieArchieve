@@ -4,64 +4,56 @@ using movieArchieve.Entities;
 
 namespace movieArchieve.Controllers
 {
-    public class actorController : Controller
+    public class WatchlistsControllers : Controller
     {
         private readonly AppDbContext _context;
-        public actorController(AppDbContext context)
+        public WatchlistsControllers(AppDbContext context)
         {
             _context = context;
-        }   
-
-        public ActionResult Index()
-        {
-            var actors = _context.actors.ToList();
-            return View(actors);
         }
-         
-
+        public IActionResult Index()
+        {
+            var watchlists = _context.watchlists.ToList();
+            return View(watchlists);
+        }
         public IActionResult Delete(int ID)
-        { 
-            var actor = _context.actors.Find(ID);
-            if (actor == null)
+        {
+            var watchlist = _context.watchlists.Find(ID);
+            if (watchlist == null)
             {
                 return NotFound();
             }
-            _context.actors.Remove(actor);
+            _context.watchlists.Remove(watchlist);
             _context.SaveChanges();
             return RedirectToAction("Index");
         }
-
         public IActionResult Create()
         {
             return View();
         }
         [HttpPost]
-        public IActionResult Create(Actors actor)
+        public IActionResult Create(Watchlists watchlist)
         {
-            _context.actors.Add(actor);
+            _context.watchlists.Add(watchlist);
             _context.SaveChanges();
             return RedirectToAction("Index");
         }
-
         public IActionResult Edit(int ID)
         {
-            var actor = _context.actors.Find(ID);
-            if (actor == null)
+            var watchlist = _context.watchlists.Find(ID);
+            if (watchlist == null)
             {
                 return NotFound();
             }
-            return View(actor);
+            return View(watchlist);
         }
-        
         [HttpPost]
-        public IActionResult Edit(Actors actor)
+        public IActionResult Edit(Watchlists watchlist)
         {
-            _context.actors.Update(actor);
+            _context.watchlists.Update(watchlist);
             _context.SaveChanges();
             return RedirectToAction("Index");
         }
 
-
-        
     }
 }

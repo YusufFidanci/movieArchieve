@@ -1,0 +1,23 @@
+﻿@model IEnumerable<movieArchieve.Entities.Watchlists>
+
+@{
+    ViewData["Title"] = "Watchlist";
+}
+
+<h1>Watchlist</h1>
+
+<form method="post" action="/Watchlists/Create">
+
+    <div>
+        <label>Watchlist Name</label>
+        <input type="text" name="listName" required />
+    </div>
+
+    <div>
+        <label>Created At</label>
+        <input type="datetime-local" name="createdAt" />
+    </div>
+    
+    <button type="submit">Create Watchlist</button>
+
+</form>
