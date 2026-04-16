@@ -4,27 +4,26 @@ using System.ComponentModel.DataAnnotations;
 
 
 
-namespace movieArchieve.Entities
+namespace movieArchieve.Entities;
+
+public class Ratings
 {
-    public class Ratings
-    {
-        [Key]
-        public int ratingID { get; set; }
+    [Key]
+    public int ratingID { get; set; }
 
-        [Required]
+    [Required]
 
-        public double scor { get; set; }
-
-        public DateTime createdAt { get; set; }
+    public double scor { get; set; }
+    [Required]  
+    public DateTime createdAt { get; set; }
 
 
-        [ForeignKey("UserID")]
-        public Users? user { get; set; }
-        
-        [ForeignKey("MovieID")]
-        public Movies movie { get; set; }
+    [ForeignKey("UserID")]
+    public Users? user { get; set; }
+    
+    [ForeignKey("MovieID")]
+    public Movies movie { get; set; }
 
 
 
-    }
 }

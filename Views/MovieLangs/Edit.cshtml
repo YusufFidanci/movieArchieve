@@ -1,0 +1,19 @@
+﻿@model movieArchieve.Entities.MovieLangs
+
+@{
+    ViewData["Title"] = "Edit Movie Language";
+}
+
+<h1>Edit Movie Language</h1>
+
+<form method="post" action=" /MovieLangs/Edit">
+    <input type="hidden" name="languageID" value="@Model.languageID" />
+
+    <div>
+        <label>Language Name</label>
+        <input type="text" name="langName" value="@Model.langName" required />
+    </div>
+
+    <button type="submit">Update Language</button>
+
+</form>

@@ -1,0 +1,32 @@
+﻿@model IEnumerable<movieArchieve.Entities.Users>
+
+@{
+    ViewData["Title"] = "Users List";
+}
+
+<h1>User List</h1>
+
+<a href="/Users/Create">Add New User</a>
+
+<table>
+    <tr>
+        <th>ID</th>
+        <th>username</th>
+        <th>email</th>
+        <th>passwordHash</th>
+        <th>Actions</th>
+    </tr>
+    @foreach (var user in Model)
+    {
+        <tr>
+            <td>@user.userID</td>
+            <td>@user.username</td>
+            <td>@user.email</td>
+            <td>@user.passwordHash</td> 
+            <td>
+                <a href=" /Users/Edit/user.userID">Edit</a>
+                <a href="/Users/Delete/user.userID">Delete</a>
+            </td>
+        </tr>
+    }
+</table>

@@ -11,8 +11,5 @@ namespace movieArchieve.Entities
         public string fullName { get; set; }
         
         public int age { get; set; }
-
-
-
     }
 }

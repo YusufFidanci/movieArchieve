@@ -1,0 +1,39 @@
+﻿@model IEnumerable<movieArchieve.Entities.Movies>
+
+@{
+    ViewData["Title"] = "Create Movie";
+}
+
+<h1>Add New Movie</h1>
+
+<form method="post" action="/Movies/Create">
+    <div>
+        <label>Title</label>
+        <input type="text" name="title" required/>
+    </div>
+
+    <div>
+        <label>Overview</label>
+        <input type="text" name="overview" />
+    </div>
+
+    <div>
+        <label>Release Date</label>
+        <input type="date" name="releaseDate" />
+    </div>
+
+    <div>
+        <label>Runtime (minutes)</label>
+        <input type="number" name="runtime" />
+    </div>
+
+    <div>
+        <label>Rating</label>
+        <input type="number" step="0.1" name="rating" />
+    </div>
+
+    <button type="submit">Addm Movie</button>
+
+</form>
+
+<a href="/Movies">Back to Movie List</a>

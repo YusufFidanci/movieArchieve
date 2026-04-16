@@ -1,0 +1,19 @@
+﻿@model movieArchieve.Entities.Watchlists
+
+@{
+    ViewData["Title"] = "Edit Watchlist";
+}
+
+<h1>Edit Watchlist</h1>
+
+<form method="post" action="/Watchlists/Edit">
+    <input type="hidden" name="watchlistID" value="@Model.watchlistID" />
+
+    <div>
+        <label>List Name</label>
+        <input type="text" name="listName" value="@Model.listName"/>
+    </div>
+
+    <button type="submit">Update Watchlist</button>
+
+</form>
