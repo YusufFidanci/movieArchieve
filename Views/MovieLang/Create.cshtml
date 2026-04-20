@@ -1,0 +1,20 @@
+﻿@model IEnumerable<movieArchieve.Entities.MovieLang>
+
+@{
+    ViewData["Title"] = "Add Movie Language";
+}
+
+<h1>Add Movie Language</h1>
+
+<form method="post" action="/MovieLang/Create">
+    
+    <div>
+        <label>Language Name</label>
+        <input type="text" name="langName" required />
+    </div>
+    
+    <button type="submit">Add Language</button>
+
+</form>
+
+<a href="/MovieLang">Back to Movie Language List</a>

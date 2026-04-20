@@ -1,0 +1,18 @@
+﻿@model movieArchieve.Entities.Genre
+
+@{
+    ViewData["Title"] = "Edit Genre";
+}
+
+<h1>Edit Genre</h1>
+
+<form method="post" action="/Genre/Edit">
+    <input type="hidden" name="genreID" value="@Model.genreID" />
+    <div>
+        <label>Genre Name</label>
+        <input type="text" name="genreName" value="@Model.genreName" required />
+    </div>
+    <button type="submit">Update Genre</button> 
+</form>
+
+<a href="/Genre/Index">Back to Genre List</a>

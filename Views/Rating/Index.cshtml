@@ -1,0 +1,33 @@
+﻿@model IEnumerable<movieArchieve.Entities.Rating>
+
+@{
+    ViewData["Title"] = "Rating List";
+}
+
+<h1>Rating List</h1>
+
+<a href="/Rating/Create">Add New Rating</a>
+
+<table>
+    
+    <tr>
+        <th>ID</th>
+        <th>scor</th>
+        <th>createdAt</th>
+        <th>Actions</th>
+    </tr>
+   
+    @foreach (var rating in Model)
+    {
+        <tr>
+            <td>@rating.ratingID</td>
+            <td>@rating.score</td>
+            <td>@rating.createdAt</td>
+            <td>
+                <a href="/Rating/Edit/@rating.ratingID">Edit</a>
+                <a href="/Rating/Delete/@rating.ratingID">Delete</a>
+            </td>
+        </tr>
+    }
+
+</table>

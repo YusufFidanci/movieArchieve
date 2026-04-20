@@ -1,0 +1,36 @@
+﻿@model IEnumerable<movieArchieve.Entities.User>
+
+@{
+    ViewData["Title"] = "User List";
+}
+
+<h1>User List</h1>
+
+<form method="post" action="/User/Create">
+    
+    <div>
+        <label>Username</label>
+        <input type="text" name="username" required />
+    </div>
+
+    <div>
+        <label>Email</label>
+        <input type="text" name="email" required />
+    </div>
+
+    <div>
+        <label>PasswordHash</label>
+        <input type="text" name="passwordHash" required />
+    </div>
+
+    <div>
+        <label>CreatedAt</label>
+        <input type="datetime-local" name="createdAt" />
+    </div>
+
+    <button type="submit">Create User</button>
+</form>
+
+<a href="/User">Back to User List</a>
+
+
