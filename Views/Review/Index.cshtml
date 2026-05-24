@@ -1,0 +1,33 @@
+﻿@model IEnumerable<movieArchieve.Entities.Review>
+
+@{
+    ViewData["Title"] = "Review List";
+}
+
+<h1>Review List</h1>
+
+<a href="/Review/Create">Add New Review</a>
+
+<table>
+    <tr>
+        <th>ID</th>
+        <th>content</th>
+        <th>createdAt</th>
+        <th>updatedAt</th>
+        <th>Actions</th>
+    </tr>
+    @foreach (var review in Model)
+    {
+        <tr>
+            <td>@review.reviewID</td>
+            <td>@review.content</td>
+            <td>@review.createdAt</td>
+            <td>@review.updatedAt</td>
+            <td>
+                <a href="/Review/Edit/@review.reviewID">Edit</a>
+                <a href="/Review/Delete/@review.reviewID">Delete</a>
+            </td>
+        </tr>
+    }
+
+</table>

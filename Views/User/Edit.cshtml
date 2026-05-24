@@ -1,0 +1,36 @@
+﻿@model movieArchieve.Entities.User
+
+@{
+    ViewData["Title"] = "Edit User";
+}
+
+<h1>Edit User</h1>
+
+<form method="post" action="/User/Edit">
+    <input type="hidden" name="userID" value="@Model.userID" />
+
+    <div>
+        <label>Username</label>
+        <input type="text" name="username" value="@Model.username"/>
+    </div>
+
+    <div>
+        <label>Email</label>
+        <input type="text" name="email" value="@Model.email"/>
+    </div>
+
+    <div>
+        <label>PasswordHash</label>
+        <input type="text" name="passwordHash" value="@Model.passwordHash"/>
+    </div>
+    
+    <div>
+        <label>CreatedAt</label>
+        <input type="datetime-local" name="createdAt" value="@Model.createdAt"/>
+    </div>
+
+    <button type="submit">Update User</button>
+
+</form>
+
+<a href="/User">Back to User List</a>

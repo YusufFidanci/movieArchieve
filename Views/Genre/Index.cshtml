@@ -1,0 +1,31 @@
+﻿@model IEnumerable<movieArchieve.Entities.Genre>
+
+@{
+    ViewData["Title"] = "Genre List";
+}
+
+<h1>Genre List</h1>
+
+<a href="/Genre/Create">Add New Genre</a>
+
+<table>
+    <tr>
+        <th>ID</th>
+        <th>genreName</th>
+        <th>Actions</th>
+    </tr>
+
+    @foreach (var genre in Model)
+    {
+        <tr>
+            <td>@genre.genreID</td>
+            <td>@genre.genreName</td>
+            <td>
+                <a href="/Genre/Edit/@genre.genreID">Edit</a>
+                <a href="/Genre/Delete/@genre.genreID">Delete</a>
+            </td>
+        </tr>
+    }
+
+
+</table>

@@ -1,0 +1,32 @@
+﻿@model IEnumerable<movieArchieve.Entities.Watchlist>
+
+@{
+    ViewData["Title"] = "Watchlist";
+}
+
+<h1>Watchlist</h1>
+
+<a href="/Watchlist/Create">Add New Watchlist</a>
+
+<table>
+    <tr>
+        <th>ID</th>
+        <th>listName</th>
+        <th>createdAt</th>
+        <th>Actions</th>
+    </tr>
+    @foreach (var watchlist in Model)
+    {
+        <tr>
+            <td>@watchlist.watchlistID</td>
+            <td>@watchlist.listName</td>
+            <td>@watchlist.createdAt</td>
+            <td>
+                <a href="/Watchlist/Edit/@watchlist.watchlistID">Edit</a>
+                <a href="/Watchlist/Delete/@watchlist.watchlistID">Delete</a>
+            </td>
+        </tr>
+    }
+</table>
+
+

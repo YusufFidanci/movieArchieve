@@ -1,0 +1,41 @@
+﻿@model movieArchieve.Entities.Movie
+
+@{
+    ViewData["Title"] = "Edit Movie";
+}
+
+<h1>Edit Movie</h1>
+
+<form method="post" action="/Movie/Edit">
+    <input type="hidden" name="movieID" value="@Model.movieID" />
+
+    <div>
+        <label>Title</label>
+        <input type="text" name="title" value="@Model.title"/>
+    </div>
+
+    <div>
+        <label>Overview</label>
+        <input type="text" name="overview" value="@Model.overview" />
+    </div>
+
+    <div>
+        <label>Release Date</label>
+        <input type="date" name="releaseDate" value="@Model.releaseDate" />
+    </div>
+
+    <div>
+        <label>Runtime (minutes)</label>
+        <input type="number" name="runtimeMinutes" value="@Model.runtimeMinutes" />
+    </div>
+
+    <div>
+        <label>Rating</label>
+        <input type="number" step="0.1" name="rating" value="@Model.rating" />
+    </div>
+
+    <button type="submit">Update Movie</button>
+</form>
+
+<a href="/Movie">Back to Movie List</a>
+

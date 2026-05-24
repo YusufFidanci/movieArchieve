@@ -1,0 +1,17 @@
+﻿@model IEnumerable<movieArchieve.Entities.Genre>
+
+@{
+    ViewData["Title"] = "Genre List";
+}
+
+<h1>Add Genre</h1>
+
+<form method="post" action="/Genre/Create">
+    <div>
+        <label>Genre Name</label>
+        <input type="text" name="genreName" required />
+    </div>
+    <button type="submit">Add Genre</button>
+</form>
+
+<a href="/Genre">Back to Genre List</a>

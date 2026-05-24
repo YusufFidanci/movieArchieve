@@ -1,0 +1,23 @@
+﻿@model movieArchieve.Entities.Director
+
+@{
+    ViewData["Title"] = "Edit Director";
+}
+
+<h1>Edit Director</h1>
+
+<form method="post" action="/Director/Edit">
+    <input type="hidden" name="directorID" value="@Model.directorID" />
+    <div>
+        <label>Full Name</label>
+        <input type="text" name="fullName" value="@Model.fullName"/>
+    </div>
+    <div>
+        <label>age</label>
+        <input type="number" name="age" value="@Model.age"/>
+    </div>
+    <button type="submit">Update Director</button>
+
+</form>
+
+<a href="/Director/Index">Back to Director List</a>

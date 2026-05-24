@@ -1,0 +1,21 @@
+﻿@model IEnumerable<movieArchieve.Entities.Actor>
+
+@{
+    ViewData["Title"] = "Create Actor";
+}
+
+
+<h1>Add Actor</h1>
+
+<form method="post" action="/Actor/Create">
+    
+    <div>
+        <label>fullName</label> 
+        <input type="text" name="fullName" required/>
+    </div>
+
+    <button type="submit">Add Actor</button>
+
+</form>
+
+<a href="/Actor">Back to Actor List</a>

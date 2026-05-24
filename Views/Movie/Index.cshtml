@@ -1,0 +1,36 @@
+﻿@model IEnumerable<movieArchieve.Entities.Movie>
+
+@{
+    ViewData["Title"] = "Movie List";
+}
+
+<h1>Movie List</h1>
+
+<a href="/Movie/Create">Add New Movie</a>
+
+<table>
+    <tr>
+        <th>ID</th>
+        <th>Title</th>
+        <th>Overview</th>
+        <th>Release Date</th>
+        <th>Runtime (min)</th>
+        <th>Rating</th>
+        <th>Actions</th>
+    </tr>
+    @foreach (var movie in Model)
+    {
+        <tr>
+            <td>@movie.movieID</td>
+            <td>@movie.title</td>
+            <td>@movie.overview</td>
+            <td>@movie.releaseDate</td>
+            <td>@movie.runtimeMinutes</td>
+            <td>@movie.rating</td>
+            <td>
+                <a href="/Movie/Edit/@movie.movieID">Edit</a> |
+                <a href="/Movie/Delete/@movie.movieID">Delete</a>
+            </td>
+        </tr>
+    }
+</table>

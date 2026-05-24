@@ -1,0 +1,28 @@
+﻿@model IEnumerable<movieArchieve.Entities.MovieLang>
+
+@{
+    ViewData["Title"] = "Movie Languages";
+}
+
+<h1>Movie Languages</h1>
+
+<a href="/MovieLang/Create">Add New Language</a>
+
+<table>
+    <tr>
+        <th>Language ID</th>
+        <th>Language Name</th>
+        <th>Actions</th>
+    </tr>
+    @foreach (var lang in Model)
+    {
+       <tr>
+           <td>@lang.languageID</td>
+           <td>@lang.langName</td>
+           <td>
+                <a href=" /MovieLang/Edit/@lang.languageID">Edit</a>
+                <a href=" /MovieLang/Delete/@lang.languageID">Delete</a>
+           </td>
+       </tr>
+    }
+</table>
