@@ -30,5 +30,4 @@ public class AppDbContext : DbContext
         modelBuilder.Entity<WatchlistMovie>()
             .HasKey(wm => new { wm.watchlistID, wm.movieID });
     }
-
 }
